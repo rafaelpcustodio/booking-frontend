@@ -5,7 +5,9 @@ import App from '../../App';
 
 const List = props => {
     return (
-        <App>List</App>
+        <App>
+            List
+        </App>
     )
 }
 
