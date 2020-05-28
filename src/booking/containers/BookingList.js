@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import App from './App';
+import App from '../../App';
+import Container from '../components/Container';
 
-const BookingList = props => {
-    
+const BookingList = ({ children }) => {
+    return (
+        <App>
+            <Container>
+                { children }
+            </Container>
+        </App>
+    )
 }
 
 BookingList.defaultProps = {}

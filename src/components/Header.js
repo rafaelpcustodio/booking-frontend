@@ -4,7 +4,7 @@ import headerImage from '../assets/images/travel.jpg';
 import StyledHeader from './StyledHeader';
 
 const StyledBackGroundImageHeader = styled.div`
-    height: 25rem;
+    height: 20rem;
     background-image: url(${headerImage});
     background-size: 1400px 600px;
     background-repeat: no-repeat;

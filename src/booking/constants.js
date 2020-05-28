@@ -1,0 +1,7 @@
+const CONTEXT_NAME = 'BOOKING'
+
+const actions = {
+    BOOKING_GET_LIST: `${CONTEXT_NAME}_GET_LIST`,
+    BOOKING_REQUEST_GET_LIST: `${CONTEXT_NAME}_REQUEST_GET_LIST`
+}
+export { actions }
