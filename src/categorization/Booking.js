@@ -3,6 +3,7 @@ import TripWay from './TripWay';
 class Booking {
 
     constructor(booking) {
+        this._id = booking.id
         this._passengerName = booking.passengerName
         this._passengerContactNumber = booking.passengerContactNumber
         this._pickupTime = booking.pickupTime
@@ -17,6 +18,10 @@ class Booking {
             this._tripWayPoints = booking.tripWayPoints
                 .map(tripWay => new TripWay(tripWay))
         }
+    }
+
+    get id() {
+        return this._id
     }
 
     get passengerName() {

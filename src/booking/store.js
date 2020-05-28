@@ -1,7 +1,8 @@
-import { List, Record } from 'immutable';
+import { List, Map, Record } from 'immutable';
 
 const store = Record({
-    bookingList: List()
+    bookingList: List(),
+    booking: Map()
 })();
 
 export { store }

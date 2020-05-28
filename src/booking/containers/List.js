@@ -4,7 +4,10 @@ import List from '../pages/List';
 
 
 import {
-    requestBookingList
+    requestAddBooking,
+    requestBookingList,
+    requestEditBooking,
+    requestRemoveBooking
 } from '../actions'
 
 import {
@@ -16,7 +19,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    requestBookingList
+    requestBookingList,
+    requestEditBooking,
+    requestRemoveBooking
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)

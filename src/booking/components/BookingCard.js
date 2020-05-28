@@ -7,7 +7,11 @@ const BookingCard = styled.div`
     display: inline-block;
     margin: 1.5rem 1.5rem 0rem 1.5rem;
     padding: 1rem 1rem 1rem 1rem;
+    transition: transform .5s;
     width: 25rem;
+    :hover {
+        transform: scale(1.05);
+    }
 `
 
 export default BookingCard

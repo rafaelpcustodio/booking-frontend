@@ -5,6 +5,7 @@ import Container from '../components/Container';
 const BookingList = ({ children }) => {
     return (
         <App>
+            <div>Bookings from: </div>
             <Container>
                 { children }
             </Container>
