@@ -9,9 +9,10 @@ import DeleteModal from '../components/DeleteModal';
 import {
     faEdit,
     faTrashAlt
-  } from '@fortawesome/free-solid-svg-icons';
+  } from '@fortawesome/free-solid-svg-icons'
 
-import convertDateTime from '../../utils/converter';
+
+import convertDateTime from '../../utils/converter'
 
 
 const StyledEditButton = styled.button`
