@@ -5,7 +5,7 @@ const BookingCard = styled.div`
     border-radius: 15px;
     box-shadow: 5px 5px 5px 4px #E8E8E8;
     display: inline-block;
-    margin: 1.5rem 1.5rem 0rem 1.5rem;
+    margin: .75rem 1.5rem .75rem 1.5rem;
     padding: 1rem 1rem 1rem 1rem;
     transition: transform .5s;
     width: 25rem;

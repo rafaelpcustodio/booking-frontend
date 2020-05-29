@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
+    requestAddBooking,
     requestBookingList,
     requestEditBooking,
     requestRemoveBooking

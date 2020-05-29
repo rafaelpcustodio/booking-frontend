@@ -10,14 +10,14 @@ const StyledBackGroundImageHeader = styled.div`
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center top;
-    box-shadow: 5px 5px 5px 4px red;
+    box-shadow: 5px 0px 0px 3px #E8E8E8;
 `
 
-const Header = () => {
+const Header = ({ requestAddBooking }) => {
     return (
       <>
         <StyledBackGroundImageHeader/>
-        <StyledHeader/>
+        <StyledHeader requestAddBooking={requestAddBooking}/>
       </>
     );
   }

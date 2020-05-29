@@ -5,14 +5,12 @@ const StyledText = styled.div`
     align-items: center;
     text-align: center;
     color: #8A8585;
-    transition: transform .9s;
-    :hover {
-        transform: scale(1.20);
+    :hover {    
+        color: black;
     }
 `
 
 const StyledButton = styled.button`
-    color: #656565;
     text-align:center;
     font-size: 16px;
     font-weight: bold;
@@ -24,17 +22,18 @@ const StyledButton = styled.button`
     background: none;
     border-left: 1px solid #E8E8E8;
     border-right: 1px solid #E8E8E8;
+    :focus {
+        outline: none;
+    }
 `
 
-const Button = ( {text} ) => {
+const Button = ( {text, action} ) => {
     return (
-        <>
-            <StyledButton>
-                <StyledText>
-                    {text}
-                </StyledText>
-            </StyledButton>
-        </>
+        <StyledButton onClick={action}>
+            <StyledText>
+                {text}
+            </StyledText>
+        </StyledButton>
     );
 }
 

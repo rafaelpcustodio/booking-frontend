@@ -6,17 +6,16 @@ const Styled = styled.div`
     background-color: white;
     border-top: 1px solid #E8E8E8;
     border-bottom: 2px solid #E8E8E8;
-    box-shadow: 3px 3px 3px 4px gray;
     display: flex;
     height: 4rem;
     justify-content: center;
     width: 100%;
 `
 
-const StyledHeader = () => {
+const StyledHeader = ({requestAddBooking}) => {
     return (
       <Styled>
-            <Button text={"Create bookings"}/>
+            <Button text={"Create bookings"} action={requestAddBooking}/>
             <Button text={"List bookings"}/>
             <Button text={"Find trips"}/>
             <Button text={"Find best prices"}/>

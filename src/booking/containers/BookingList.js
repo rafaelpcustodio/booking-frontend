@@ -2,10 +2,9 @@ import React from 'react';
 import App from '../../App';
 import Container from '../components/Container';
 
-const BookingList = ({ children }) => {
+const BookingList = ({ children, requestAddBooking }) => {
     return (
-        <App>
-            <div>Bookings from: </div>
+        <App requestAddBooking={requestAddBooking}>
             <Container>
                 { children }
             </Container>
