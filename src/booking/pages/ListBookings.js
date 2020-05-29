@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import BookingList from '../containers/BookingList';
+import { useHistory } from "react-router-dom";
+import MainPage from '../MainPage';
 import BookingCard from '../components/BookingCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -48,7 +49,7 @@ const StyledText = styled.div`
     padding: 0rem .5rem .4rem 0rem;
 `
 
-const List = props => {
+const ListBookings = props => {
 
     const {
         bookingList,
@@ -57,6 +58,8 @@ const List = props => {
         requestRemoveBooking,
         requestEditBooking
     } = props
+
+    const history = useHistory();
 
     const [deleteModal, updateDeleteModal] = useState(false);
     const [bookingId, updateBookingId] = useState('');
@@ -84,7 +87,7 @@ const List = props => {
     }
 
     const handleAddBook = () => {
-        requestAddBooking()
+        history.push("/booking/create")
     }
 
     return(
@@ -95,8 +98,8 @@ const List = props => {
                 bookingId={bookingId}
                 handleClose={() => handleClose()}
             />
-            <BookingList requestAddBooking={handleAddBook} >
-            { bookingList && bookingList.map((booking, index) => (
+            <MainPage requestAddBooking={handleAddBook} >
+            { Array.isArray(bookingList) && bookingList.map((booking, index) => (
                     <BookingCard key={index}>
                         <StyledDeleteButton onClick={e => handleShowDeleteMessage(booking.id)}>
                             <FontAwesomeIcon icon={faTrashAlt} />
@@ -134,13 +137,13 @@ const List = props => {
                         </StyledInfo>
                     </BookingCard>
             ))}
-            </BookingList>
+            </MainPage>
         </>
     )
 }
 
-List.defaultProps = {}
+ListBookings.defaultProps = {}
 
-List.protoTypes = {}
+ListBookings.protoTypes = {}
 
-export default List
+export default ListBookings

@@ -13,11 +13,11 @@ const StyledBackGroundImageHeader = styled.div`
     box-shadow: 5px 0px 0px 3px #E8E8E8;
 `
 
-const Header = ({ requestAddBooking }) => {
+const Header = ({ requestAddBooking, handleListBooking }) => {
     return (
       <>
         <StyledBackGroundImageHeader/>
-        <StyledHeader requestAddBooking={requestAddBooking}/>
+        <StyledHeader requestAddBooking={requestAddBooking} handleListBooking={handleListBooking}/>
       </>
     );
   }

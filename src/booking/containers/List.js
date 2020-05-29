@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import List from '../pages/List';
+import ListBookings from '../pages/ListBookings';
 
 
 import {
@@ -25,4 +25,4 @@ const mapDispatchToProps = {
     requestRemoveBooking
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default connect(mapStateToProps, mapDispatchToProps)(ListBookings)

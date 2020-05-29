@@ -12,11 +12,11 @@ const Styled = styled.div`
     width: 100%;
 `
 
-const StyledHeader = ({requestAddBooking}) => {
+const StyledHeader = ({requestAddBooking, handleListBooking}) => {
     return (
       <Styled>
             <Button text={"Create bookings"} action={requestAddBooking}/>
-            <Button text={"List bookings"}/>
+            <Button text={"List bookings"} action={handleListBooking}/>
             <Button text={"Find trips"}/>
             <Button text={"Find best prices"}/>
             <Button text={"Contact us"}/>
