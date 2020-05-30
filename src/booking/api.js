@@ -11,7 +11,6 @@ const getAllBooking = () => {
         .then(({ data, status }) => {
             let response = List()
             if (responseWasOK(status)) {
-                console.log(data)
                 data.forEach(booking => {
                     response = response.push(new Booking(booking))
                 })

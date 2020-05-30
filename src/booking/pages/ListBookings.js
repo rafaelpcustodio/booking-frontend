@@ -17,6 +17,7 @@ import {
   
 import convertDateTime from '../../utils/converter';
 import BookingCardLoading from '../components/BookingCardLoading';
+import NoBookings from '../components/NoBookigs';
 
 
 const StyledEditButton = styled.button`
@@ -104,44 +105,46 @@ const ListBookings = props => {
             />
             <MainPage requestAddBooking={handleAddBook}>
                 <If condition={not(loadingBookings)} el={<BookingCardLoading/>}>
-                { bookingList.map((booking, index) => (
-                    <BookingCard key={index}>
-                        <StyledDeleteButton onClick={e => handleShowDeleteMessage(booking.id)}>
-                            <FontAwesomeIcon icon={faTrashAlt} />
-                        </StyledDeleteButton>
-                        <StyledEditButton onClick={e => editBooking(e, booking.id)}>
-                            <FontAwesomeIcon icon={faEdit} />
-                        </StyledEditButton>
-                        <StyledInfo>
-                            <StyledText>Name: </StyledText>
-                            <div>{booking.passengerName}</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Contact number: </StyledText>
-                            <div>{booking.passengerContactNumber}</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Pick-up time: </StyledText>
-                            <div>{convertDateTime(booking.pickupTime)}</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Waiting time: </StyledText>
-                            <div>{booking.waitingTime}</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Passenger number: </StyledText>
-                            <div>{booking.noOfPassengers}</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Price: </StyledText>
-                            <div>{booking.price} USD</div>
-                        </StyledInfo>
-                        <StyledInfo>
-                            <StyledText>Rating: </StyledText>
-                            <div>{booking.rating}</div>
-                        </StyledInfo>
-                    </BookingCard>
+                    <If condition={bookingList.size !== 0} el={<NoBookings/>}>
+                        { bookingList.map((booking, index) => (
+                            <BookingCard key={index}>
+                                <StyledDeleteButton onClick={e => handleShowDeleteMessage(booking.id)}>
+                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                </StyledDeleteButton>
+                                <StyledEditButton onClick={e => editBooking(e, booking.id)}>
+                                    <FontAwesomeIcon icon={faEdit} />
+                                </StyledEditButton>
+                                <StyledInfo>
+                                    <StyledText>Name: </StyledText>
+                                    <div>{booking.passengerName}</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Contact number: </StyledText>
+                                    <div>{booking.passengerContactNumber}</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Pick-up time: </StyledText>
+                                    <div>{convertDateTime(booking.pickupTime)}</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Waiting time: </StyledText>
+                                    <div>{booking.waitingTime}</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Passenger number: </StyledText>
+                                    <div>{booking.noOfPassengers}</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Price: </StyledText>
+                                    <div>{booking.price} USD</div>
+                                </StyledInfo>
+                                <StyledInfo>
+                                    <StyledText>Rating: </StyledText>
+                                    <div>{booking.rating}</div>
+                                </StyledInfo>
+                            </BookingCard>
             ))}
+                </If>
             </If>
             </MainPage>
         </>
