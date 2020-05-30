@@ -6,7 +6,10 @@ const Header = ({ requestAddBooking, handleListBooking }) => {
     return (
       <>
         <BackgroundImageHeader/>
-        <StyledHeader requestAddBooking={requestAddBooking} handleListBooking={handleListBooking}/>
+        <StyledHeader 
+          requestAddBooking={requestAddBooking} 
+          handleListBooking={handleListBooking}
+        />
       </>
     );
   }

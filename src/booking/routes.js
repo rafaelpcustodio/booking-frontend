@@ -1,9 +1,9 @@
 import List from './containers/List';
-import CreateBooking from './pages/CreateBooking';
+import Create from './containers/Create';
 
 const routes = [
     { component: List, name: 'bookingList', path: '/' },
-    { component: CreateBooking, name: 'bookingList', path: '/booking/create' }
+    { component: Create, name: 'createBooking', path: '/booking/create' }
 ]
 
 export { routes }

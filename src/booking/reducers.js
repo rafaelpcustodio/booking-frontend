@@ -5,6 +5,7 @@ import { store } from './store';
 
 import {
     getBookingListAction,
+    getTripListAction,
     editBookingAction,
     removeBookingAction,
     setLoadingBookingsAction
@@ -16,6 +17,9 @@ const reducers = handleActions({
     }),
     [getBookingListAction]:(state, { payload }) => state.merge({
         bookingList: payload
+    }),
+    [getTripListAction]:(state, { payload }) => state.merge({
+        tripList: payload
     }),
     [setLoadingBookingsAction]: (state, { payload }) => state.merge({
         loadingBookings: payload

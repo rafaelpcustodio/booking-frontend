@@ -4,10 +4,10 @@ import ListBookings from '../pages/ListBookings';
 
 
 import {
-    requestAddBooking,
-    requestBookingList,
-    requestEditBooking,
-    requestRemoveBooking
+    requestAddBookingAction,
+    requestBookingListAction,
+    requestEditBookingAction,
+    requestRemoveBookingAction
 } from '../actions'
 
 import {
@@ -21,10 +21,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    requestAddBooking,
-    requestBookingList,
-    requestEditBooking,
-    requestRemoveBooking
+    requestAddBookingAction,
+    requestBookingListAction,
+    requestEditBookingAction,
+    requestRemoveBookingAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListBookings)

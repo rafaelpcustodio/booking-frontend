@@ -2,23 +2,20 @@ import { connect } from 'react-redux';
 
 import CreateBooking from '../pages/CreateBooking';
 
-
 import {
-    requestAddBooking,
-    requestBookingList
+    requestTripListAction
 } from '../actions'
 
 import {
-    getBookingListSelector
+    getTripListSelector
 } from '../selectors'
 
 const mapStateToProps = state => ({
-    bookingList: getBookingListSelector(state)
+    tripList: getTripListSelector(state)
 })
 
 const mapDispatchToProps = {
-    requestAddBooking,
-    requestBookingList
+    requestTripListAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBooking)

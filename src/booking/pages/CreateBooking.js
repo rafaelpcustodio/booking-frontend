@@ -1,58 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React from 'react';
 import { useHistory } from "react-router-dom";
+import styled, { keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
+import CreateBookingForm from '../components/CreateBookingForm';
+
+import Trip from '../../categorization/Trip';
 
 import MainPage from '../MainPage';
 
+const animationAppearing = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
+
+const StyledForm = styled.div`
+    animation: ${animationAppearing} 1s;
+`
+
 const CreateBooking = props => {
+
+    const {
+        requestTripListAction,
+        tripList
+    } = props
 
     const history = useHistory();
 
     const handleListBooking = () => {
         history.push("/")
     }
-
+    
     return(
         <MainPage handleListBooking={handleListBooking}>
-            <Form>
-                <FormGroup>
-                    <Label for="exampleName">Full name</Label>
-                    <Input type="name" name="name" id="exampleName" placeholder="Write your full name here" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="Write your e-mail here" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleSelect">Select the place to your next trip!</Label>
-                    <Input type="select" name="select" id="exampleSelect">
-                    <option>Rio de janeiro</option>
-                    <option>Bangkok</option>
-                    <option>Syndey</option>
-                    <option>Paris</option>
-                    <option>Veneza</option>
-                    </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleText">Text Area</Label>
-                    <Input type="textarea" name="text" id="exampleText" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file" id="exampleFile" />
-                    <FormText color="muted">
-                    This is some placeholder block-level help text for the above input.
-                    It's a bit lighter and easily wraps to a new line.
-                    </FormText>
-                </FormGroup>
-                <Button>Submit</Button>
-            </Form>
+            <StyledForm>
+                <CreateBookingForm 
+                requestTripListAction={requestTripListAction} tripList={tripList}/>
+            </StyledForm>
         </MainPage>
     )
 }
 
-CreateBooking.defaultProps = {}
+CreateBooking.defaultProps = {
+    requestBookingListAction: null,
+    requestTripListAction: null,
+    tripList: []
+}
 
-CreateBooking.protoTypes = {}
+CreateBooking.protoTypes = {
+    requestBookingListAction: PropTypes.func.isRequired,
+    requestTripListAction: PropTypes.func.isRequired,
+    tripList: PropTypes.arrayOf(Trip)
+}
 
 export default CreateBooking

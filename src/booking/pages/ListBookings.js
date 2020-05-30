@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { useHistory } from "react-router-dom";
 import MainPage from '../MainPage';
 import BookingCard from '../components/BookingCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { not } from '../../utils/functions';
 import If from '../../utils/If';
+import Booking from '../../categorization/Booking';
 
 import DeleteModal from '../components/DeleteModal';
 
@@ -58,41 +60,42 @@ const ListBookings = props => {
     const {
         bookingList,
         loadingBookings,
-        requestAddBooking,
-        requestBookingList,
-        requestRemoveBooking,
-        requestEditBooking
+        requestAddBookingAction,
+        requestBookingListAction,
+        requestEditBookingAction,
+        requestRemoveBookingAction
     } = props
 
     const history = useHistory();
 
-    const [deleteModal, updateDeleteModal] = useState(false);
     const [bookingId, updateBookingId] = useState('');
+    const [deleteModal, updateDeleteModal] = useState(false);
+
 
     useEffect(() => {
-        requestBookingList()
-    }, [])
+        requestBookingListAction()
+    }, []);
 
     const deleteBooking = () => {
-        requestRemoveBooking(bookingId)
-        updateBookingId('')
-        updateDeleteModal(false)
+        requestRemoveBookingAction(bookingId);
+        updateBookingId('');
+        updateDeleteModal(false);
     }
 
     const editBooking = (e, id) => {
-        e.preventDefault()
-        requestEditBooking(id)
+        e.preventDefault();
+        requestEditBookingAction(id);
     }
 
     const handleClose = () => updateDeleteModal(false);
 
     const handleShowDeleteMessage = id => {
-        updateDeleteModal(true)
-        updateBookingId(id)
+        updateDeleteModal(true);
+        updateBookingId(id);
     }
 
     const handleAddBook = () => {
-        history.push("/booking/create")
+        history.push("/booking/create");
     }
     
     return(
@@ -106,7 +109,7 @@ const ListBookings = props => {
             <MainPage requestAddBooking={handleAddBook}>
                 <If condition={not(loadingBookings)} el={<BookingCardLoading/>}>
                     <If condition={bookingList.size !== 0} el={<NoBookings/>}>
-                        { bookingList.map((booking, index) => (
+                        { bookingList && bookingList.map((booking, index) => (
                             <BookingCard key={index}>
                                 <StyledDeleteButton onClick={e => handleShowDeleteMessage(booking.id)}>
                                     <FontAwesomeIcon icon={faTrashAlt} />
@@ -151,8 +154,21 @@ const ListBookings = props => {
     )
 }
 
-ListBookings.defaultProps = {}
+ListBookings.defaultProps = {
+    bookingList: [],
+    requestAddBookingAction: null,
+    requestBookingListAction: null,
+    requestRemoveBookingAction: null,
+    requestEditBookingAction: null
+}
 
-ListBookings.protoTypes = {}
+ListBookings.protoTypes = {
+    bookingList: PropTypes.arrayOf(Booking),
+    loadingBookings: PropTypes.bool.isRequired,
+    requestAddBookingAction: PropTypes.func,
+    requestBookingListAction: PropTypes.func,
+    requestRemoveBookingAction: PropTypes.func,
+    requestEditBookingAction: PropTypes.func
+}
 
 export default ListBookings

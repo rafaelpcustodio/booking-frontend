@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledText = styled.div`
     align-items: center;
     text-align: center;
-    color: #8A8585;
+    color: ${({ selected }) => selected ? 'black' : '#8A8585'};
     :hover {    
         color: black;
     }
