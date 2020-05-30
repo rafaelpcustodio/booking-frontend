@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import MainPage from '../MainPage';
 import BookingCard from '../components/BookingCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { not } from '../../utils/functions';
+import If from '../../utils/If';
 
 import DeleteModal from '../components/DeleteModal';
 
@@ -14,6 +16,7 @@ import {
 
   
 import convertDateTime from '../../utils/converter';
+import BookingCardLoading from '../components/BookingCardLoading';
 
 
 const StyledEditButton = styled.button`
@@ -53,6 +56,7 @@ const ListBookings = props => {
 
     const {
         bookingList,
+        loadingBookings,
         requestAddBooking,
         requestBookingList,
         requestRemoveBooking,
@@ -89,7 +93,7 @@ const ListBookings = props => {
     const handleAddBook = () => {
         history.push("/booking/create")
     }
-
+    
     return(
         <>  
             <DeleteModal 
@@ -98,8 +102,9 @@ const ListBookings = props => {
                 bookingId={bookingId}
                 handleClose={() => handleClose()}
             />
-            <MainPage requestAddBooking={handleAddBook} >
-            { Array.isArray(bookingList) && bookingList.map((booking, index) => (
+            <MainPage requestAddBooking={handleAddBook}>
+                <If condition={not(loadingBookings)} el={<BookingCardLoading/>}>
+                { bookingList.map((booking, index) => (
                     <BookingCard key={index}>
                         <StyledDeleteButton onClick={e => handleShowDeleteMessage(booking.id)}>
                             <FontAwesomeIcon icon={faTrashAlt} />
@@ -137,6 +142,7 @@ const ListBookings = props => {
                         </StyledInfo>
                     </BookingCard>
             ))}
+            </If>
             </MainPage>
         </>
     )

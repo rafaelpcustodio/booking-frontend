@@ -10,6 +10,8 @@ const getBookingListAction = createAction(actions.BOOKING_GET_LIST)
 const requestBookingList = createAction(actions.BOOKING_REQUEST_GET_LIST)
 const removeBookingAction = createAction(actions.BOOKING_REMOVE)
 const requestRemoveBooking = createAction(actions.BOOKING_REQUEST_REMOVE)
+const setLoadingBookingsAction = createAction(actions.BOOKING_SET_LOADING)
+const requestSetLoadingBookingAction = createAction(actions.BOOKING_REQUEST_SET_LOADING)
 
 export {
     addBookingAction,
@@ -19,5 +21,7 @@ export {
     removeBookingAction,
     requestRemoveBooking,
     editBookingAction,
-    requestEditBooking
+    requestEditBooking,
+    setLoadingBookingsAction,
+    requestSetLoadingBookingAction
 }

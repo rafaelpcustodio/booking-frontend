@@ -7,7 +7,8 @@ import { getAllBooking, removeBooking, saveBooking } from './api';
 import {
     getBookingListAction,
     editBookingAction,
-    removeBookingAction
+    removeBookingAction,
+    setLoadingBookingsAction
 } from './actions';
 
 function* addBookingRequested() {
@@ -29,6 +30,7 @@ function* getBookingListRequested() {
     try {
         const bookingList = yield call(getAllBooking)
         yield put(getBookingListAction(bookingList))
+        yield put(setLoadingBookingsAction(false))
     } catch (error) {
         throw Error
     }

@@ -11,11 +11,13 @@ import {
 } from '../actions'
 
 import {
-    getBookingListSelector
+    getBookingListSelector,
+    getLoadingBookingsSelector
 } from '../selectors'
 
 const mapStateToProps = state => ({
-    bookingList: getBookingListSelector(state)
+    bookingList: getBookingListSelector(state),
+    loadingBookings: getLoadingBookingsSelector(state)
 })
 
 const mapDispatchToProps = {

@@ -2,7 +2,8 @@ import { List, Map, Record } from 'immutable';
 
 const store = Record({
     bookingList: List(),
-    booking: Map()
+    loadingBookings: true,
+    booking: Map({})
 })();
 
 export { store }

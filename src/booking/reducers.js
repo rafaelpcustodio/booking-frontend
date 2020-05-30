@@ -6,7 +6,8 @@ import { store } from './store';
 import {
     getBookingListAction,
     editBookingAction,
-    removeBookingAction
+    removeBookingAction,
+    setLoadingBookingsAction
 } from './actions';
 
 const reducers = handleActions({
@@ -15,6 +16,9 @@ const reducers = handleActions({
     }),
     [getBookingListAction]:(state, { payload }) => state.merge({
         bookingList: payload
+    }),
+    [setLoadingBookingsAction]: (state, { payload }) => state.merge({
+        loadingBookings: payload
     }),
     [removeBookingAction]: (state, {payload}) => {
         const bookings = state.get('bookingList').toJS()
