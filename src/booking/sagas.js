@@ -30,7 +30,7 @@ function* editBookingRequested({ payload }) {
 
 function* getTripListRequested() {
     try {
-        const tripList = [{ name: "Rio", price: "123.45"}]
+        const tripList = [{ name: "Rio", price: "123.45", isSale: false}]
         yield put(getTripListAction(List(tripList)))
     } catch (error) {
         throw Error
