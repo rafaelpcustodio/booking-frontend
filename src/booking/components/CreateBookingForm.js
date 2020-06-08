@@ -4,18 +4,7 @@ import If from '../../utils/If';
 
 const CreateBookingForm = props => {
 
-        const {
-            requestTripListAction,
-            tripList
-        } = props
-
-        useEffect(() => {
-            requestTripListAction()
-        }, [])
-
-        const handleInputs = () => {
-            console.log("hello")
-        }
+    
 
         return(
             <Form>
@@ -36,18 +25,13 @@ const CreateBookingForm = props => {
                     <Input type="phone" name="phone" id="examplePhone" placeholder="Write your phone here" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleSelect" onChange={ () => handleInputs() }>
+                    <Label for="exampleSelect">
                         Select the place to your next trip!
                     </Label>
                     <Input 
                         type="select" 
                         name="select" 
                         id="exampleSelect">
-                            <If condition={tripList.size !== 0} el={null}>
-                                {tripList && tripList.map((trip, index) => (
-                                    <option key={index}>{trip.name}</option>
-                                ))}
-                            </If>
                     </Input>
                 </FormGroup>
             <Button variant="secondary">Submit</Button>

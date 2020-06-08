@@ -23,22 +23,20 @@ const StyledForm = styled.div`
 
 const CreateBooking = props => {
 
-    const {
-        requestTripListAction,
-        tripList
-    } = props
-
     const history = useHistory();
 
     const handleListBooking = () => {
         history.push("/")
     }
+
+    const handleFindTrips = () => {
+        history.push("/trips");
+    }
     
     return(
-        <MainPage handleListBooking={handleListBooking}>
+        <MainPage handleListBooking={handleListBooking} handleFindTrips={handleFindTrips}>
             <StyledForm>
-                <CreateBookingForm 
-                requestTripListAction={requestTripListAction} tripList={tripList}/>
+                <CreateBookingForm />
             </StyledForm>
         </MainPage>
     )

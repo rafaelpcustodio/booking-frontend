@@ -2,9 +2,12 @@ import React from 'react';
 import App from '../App';
 import Container from './components/Container';
 
-const MainPage = ({ children, requestAddBooking, handleListBooking }) => {
+const MainPage = ({ children, requestAddBooking, handleFindTrips, handleListBooking }) => {
     return (
-        <App requestAddBooking={requestAddBooking} handleListBooking={handleListBooking}>
+        <App 
+            requestAddBooking={requestAddBooking} 
+            handleFindTrips={handleFindTrips} 
+            handleListBooking={handleListBooking}>
             <Container>
                 { children }
             </Container>

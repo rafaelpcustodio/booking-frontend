@@ -4,11 +4,11 @@ import FindTrips from '../pages/FindTrips';
 
 import {
     requestTripListAction
-} from '../../booking/actions'
+} from '../../trip/actions'
 
 import {
     getTripListSelector
-} from '../../booking/selectors'
+} from '../../trip/selectors'
 
 const mapStateToProps = state => ({
     tripList: getTripListSelector(state)

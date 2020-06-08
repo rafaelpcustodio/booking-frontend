@@ -6,12 +6,14 @@ import { ConnectedRouter } from 'connected-react-router/immutable';
 import { combineRoutes } from '../utils/routes';
 
 import { routes as bookingRoutes } from '../booking/routes';
+import { routes as tripRoutes } from '../trip/routes';
 
 import { history } from './history';
 import { store } from './store';
 
 const systemRoutes = combineRoutes(
-    bookingRoutes
+    bookingRoutes,
+    tripRoutes
 )
 
 const Routes = () => (

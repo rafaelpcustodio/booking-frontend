@@ -11,11 +11,9 @@ import {
 } from '../selectors'
 
 const mapStateToProps = state => ({
-    tripList: getTripListSelector(state)
 })
 
 const mapDispatchToProps = {
-    requestTripListAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBooking)

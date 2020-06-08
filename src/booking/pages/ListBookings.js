@@ -97,6 +97,10 @@ const ListBookings = props => {
     const handleAddBook = () => {
         history.push("/booking/create");
     }
+
+    const handleFindTrips = () => {
+        history.push("/trips");
+    }
     
     return(
         <>  
@@ -106,7 +110,9 @@ const ListBookings = props => {
                 bookingId={bookingId}
                 handleClose={() => handleClose()}
             />
-            <MainPage requestAddBooking={handleAddBook}>
+            <MainPage 
+                handleFindTrips={handleFindTrips} 
+                requestAddBooking={handleAddBook}>
                 <If condition={not(loadingBookings)} el={<BookingCardLoading/>}>
                     <If condition={bookingList.size !== 0} el={<NoBookings/>}>
                         { bookingList && bookingList.map((booking, index) => (
